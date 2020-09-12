@@ -7,6 +7,10 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+//My routes
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
+
 //DB Connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -23,6 +27,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+//My Routes
+app.use("/api", authRoutes);
+app.use("/api", userRoutes);
+
 //PORT
 const port = process.env.PORT || 1000;
 
@@ -32,5 +40,5 @@ app.listen(port, () => {
 });
 
 app.get("/", function (req, res) {
-  res.send("Hello World!");
+  res.send("Rahat Backend");
 });
