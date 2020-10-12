@@ -14,7 +14,15 @@ exports.signup = (req, res) => {
 
   const user = new User(req.body);
   //create token
-  const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+  const token = jwt.sign(
+    {
+      _id: user._id,
+      name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+    },
+    process.env.SECRET
+  );
   //put token in cookie
   res.cookie("token", token, { expire: new Date() + 9999 });
   user.save((err, user) => {
@@ -59,7 +67,15 @@ exports.signin = (req, res) => {
     }
 
     //create token
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+    const token = jwt.sign(
+      {
+        _id: user._id,
+        name: user.name,
+        lastName: user.lastName,
+        email: user.email,
+      },
+      process.env.SECRET
+    );
     //put token in cookie
     res.cookie("token", token, { expire: new Date() + 9999 });
 
