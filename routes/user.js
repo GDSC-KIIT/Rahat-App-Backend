@@ -11,7 +11,7 @@ const user = require("../models/user");
 
 router.param("userId", getUserById);
 
-router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
-router.put("/user/:userId", isSignedIn, isAuthenticated, updateUser);
+router.get("/user/:userId", isSignedIn, getUser);
+router.put("/user/:userId", isSignedIn, updateUser);
 
 module.exports = router;
