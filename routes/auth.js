@@ -7,6 +7,7 @@ router.post(
   "/signup",
   [
     check("name", "Name should be at least 3 char").isLength({ min: 3 }),
+    check("lastName", "Last Name should be at least 1 char").isLength({min: 1}),
     check("email", "Email is required").isEmail(),
     check("password", "Password should be at least 3 char").isLength({
       min: 6,
