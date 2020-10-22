@@ -4,7 +4,6 @@ const router = express.Router();
 const {
   getPersonById,
   createPerson,
-  getPerson,
   getAllPerson,
   updatePerson,
   deletePerson,

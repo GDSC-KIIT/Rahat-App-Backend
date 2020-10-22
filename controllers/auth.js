@@ -27,6 +27,7 @@ exports.signup = (req, res) => {
   res.cookie("token", token, { expire: new Date() + 9999 });
   user.save((err, user) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         err: "NOT able to save user in DB",
       });
