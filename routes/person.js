@@ -10,7 +10,6 @@ const {
 } = require("../controllers/person");
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 const { getUserById } = require("../controllers/user");
-const product = require("../models/person");
 
 router.param("userId", getUserById);
 router.param("personId", getPersonById);

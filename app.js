@@ -12,6 +12,8 @@ const http = require("http");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const personRoutes = require("./routes/person");
+const medicalRoutes = require("./routes/medical");
+const notificationRoutes = require("./routes/notification");
 
 //DB Connection
 mongoose
@@ -33,6 +35,8 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", personRoutes);
+app.use("/api", medicalRoutes);
+app.use("/api", notificationRoutes);
 
 //Starting a server
 const httpServer = http.createServer(app);
