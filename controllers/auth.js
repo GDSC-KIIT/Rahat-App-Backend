@@ -81,8 +81,16 @@ exports.signin = (req, res) => {
     res.cookie("token", token, { expire: new Date() + 9999 });
 
     //Send response to front end
-    const { _id, name, lastName, email } = user;
-    return res.json({ token, user: { _id, name, lastName, email } });
+    // const { id, name, lastName, email } = user;
+    return res.json({
+      token: token,
+      user: {
+        name: user.name,
+        lastName: user.lastName,
+        email: user.email,
+        id: user._id,
+      },
+    });
   });
 };
 
