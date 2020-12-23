@@ -15,11 +15,15 @@ router.param("userId", getUserById);
 router.param("personId", getPersonById);
 
 //Create a person
-router.post("/create/person", isSignedIn, createPerson);
-
+router.post(
+  "/create/person/:userId",
+  isSignedIn,
+  isAuthenticated,
+  createPerson
+);
 
 //Get All person
-router.get("/get/persons", isSignedIn, getAllPerson);
+router.get("/get/persons/:userId", isSignedIn, isAuthenticated, getAllPerson);
 
 //Update persons
 router.put(
@@ -33,6 +37,7 @@ router.put(
 router.delete(
   "/delete/person/:personId/:userId",
   isSignedIn,
+  isAuthenticated,
   deletePerson
 );
 

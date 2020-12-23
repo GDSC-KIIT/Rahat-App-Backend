@@ -27,7 +27,7 @@ exports.createPerson = (req, res) => {
 
 //Get All Person
 exports.getAllPerson = (req, res) => {
-  Person.find().exec((err, person) => {
+  Person.find({ userBy: req.params.userId }).exec((err, person) => {
     if (err) {
       res.status(400).json({
         error: "No PERSONS are found",
