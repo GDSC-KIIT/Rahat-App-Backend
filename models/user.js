@@ -48,6 +48,10 @@ var userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    deviceToken: {
+      type: String,
+      trim: true,
+    },
     salt: String,
   },
   { timestamps: true }

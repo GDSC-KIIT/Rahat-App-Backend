@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { ObjectId } = mongoose.Schema;
 
 const medicalSchema = new mongoose.Schema(
   {
@@ -8,8 +7,8 @@ const medicalSchema = new mongoose.Schema(
       trim: true,
     },
     description: {
-      type: String,
-      trim: true,
+      type: Array,
+      default: [],
     },
   },
   { timestamps: true }

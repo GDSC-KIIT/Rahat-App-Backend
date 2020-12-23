@@ -15,12 +15,12 @@ const personSchema = new mongoose.Schema(
       required: true,
     },
     medicalCondition: {
-      type: String,
+      type: ObjectId,
       trim: true,
       required: true,
     },
     userBy: {
-      type: String,
+      type: ObjectId,
       ref: "User",
       required: true,
     },

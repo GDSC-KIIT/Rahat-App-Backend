@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const http = require("http");
 
 //My routes
 const authRoutes = require("./routes/auth");
@@ -33,12 +34,10 @@ app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", personRoutes);
 
-//PORT
-const port = process.env.PORT || 1000;
-
 //Starting a server
-app.listen(port, () => {
-  console.log(`app is running at ${port}`);
+const httpServer = http.createServer(app);
+httpServer.listen(80, () => {
+  console.log("Server running on port 80");
 });
 
 app.get("/", function (req, res) {
