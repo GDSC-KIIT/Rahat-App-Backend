@@ -28,8 +28,8 @@ exports.createPerson = (req, res) => {
 //Get All Person
 exports.getAllPerson = (req, res) => {
   Person.find({ userBy: req.params.userId })
-  .populate("userBy")
   .populate("medicalCondition")
+  .populate("userBy")
   .exec((err, person) => {
     if (err) {
       res.status(400).json({
