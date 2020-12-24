@@ -17,6 +17,7 @@ const personSchema = new mongoose.Schema(
     medicalCondition: {
       type: ObjectId,
       trim: true,
+      ref: "Medical",
       required: true,
     },
     userBy: {
