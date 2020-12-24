@@ -1,4 +1,4 @@
-const Medical = require("../routes/medical");
+const Medical = require("../models/medical");
 
 exports.getMedicalById = (req, res, next, id) => {
   Medical.findById(id).exec((err, medical) => {
